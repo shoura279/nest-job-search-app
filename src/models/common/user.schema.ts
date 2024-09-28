@@ -39,6 +39,9 @@ export class User {
   @Prop({ type: String, enum: STATUS, default: STATUS.OFFLINE })
   status: string;
 
+  @Prop({ type: Boolean, default: false })
+  isVerified: boolean;
+  
   readonly _id: mongoose.Schema.Types.ObjectId;
 }
 export const userSchema = SchemaFactory.createForClass(User);

@@ -1,4 +1,10 @@
-import { Document, FilterQuery, Model, ProjectionType, QueryOptions } from 'mongoose';
+import {
+  Document,
+  FilterQuery,
+  Model,
+  ProjectionType,
+  QueryOptions,
+} from 'mongoose';
 
 export abstract class AbstractRepository<ay7aga> {
   constructor(private nMode: Model<ay7aga & Document>) {}
@@ -19,8 +25,8 @@ export abstract class AbstractRepository<ay7aga> {
 
   public update(
     query: FilterQuery<ay7aga>,
-    item: any,
-    options: QueryOptions<ay7aga>,
+    item?: any,
+    options?: QueryOptions<ay7aga>,
   ) {
     return this.nMode.findOneAndUpdate(query, item, options).lean();
   }
