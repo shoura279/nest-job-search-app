@@ -10,7 +10,7 @@ export class JobSearcher {
   recoveryEmail: string;
   DOB: string;
   mobileNumber: string;
-  status: string;
-  readonly _id: mongoose.Schema.Types.ObjectId;
+  status?: string;
+  readonly _id?: mongoose.Schema.Types.ObjectId;
 }
 export const jobSearcherSchema = SchemaFactory.createForClass(JobSearcher);
