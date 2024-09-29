@@ -9,5 +9,6 @@ export class JobSearcher {
   DOB: string;
   mobileNumber: string;
   status?: string;
+  iisVerified?: boolean;
   _id?: mongoose.Schema.Types.ObjectId;
 }

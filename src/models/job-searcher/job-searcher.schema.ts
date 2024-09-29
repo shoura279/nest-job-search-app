@@ -1,4 +1,4 @@
-import { Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 
 @Schema({ timestamps: true, discriminatorKey: 'type' })
@@ -11,6 +11,8 @@ export class JobSearcher {
   DOB: string;
   mobileNumber: string;
   status?: string;
+  @Prop({ type: Boolean, default: false })
+  isVerified?: boolean;
   readonly _id?: mongoose.Schema.Types.ObjectId;
 }
 export const jobSearcherSchema = SchemaFactory.createForClass(JobSearcher);

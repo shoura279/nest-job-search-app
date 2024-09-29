@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { SignupDTO } from './dto';
 import { CreateResponse } from 'src/common/dto/response.dto';
@@ -26,5 +26,11 @@ export class authController {
       throw error;
     }
     return createUserResponse;
+  }
+
+  @Get('verify/:token')
+  async verifyAccount(@Param() params: { token: string }) {
+    const updatedUser = await this.authService.verifyAccount(params.token);
+    return updatedUser;
   }
 }

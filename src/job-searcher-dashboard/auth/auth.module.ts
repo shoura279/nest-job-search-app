@@ -7,6 +7,8 @@ import { User, userSchema } from 'src/models/common/user.schema';
 import { JobSearcher } from './entity';
 import { jobSearcherSchema } from 'src/models/job-searcher/job-searcher.schema';
 import { JobSearcherRepository } from 'src/models/job-searcher/job-searcher.repository';
+import { EmailService } from 'src/common/email/email.service';
+import { JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -24,6 +26,12 @@ import { JobSearcherRepository } from 'src/models/job-searcher/job-searcher.repo
     ]),
   ],
   controllers: [authController],
-  providers: [AuthService, AuthFactoryService, JobSearcherRepository],
+  providers: [
+    AuthService,
+    AuthFactoryService,
+    JobSearcherRepository,
+    EmailService,
+    JwtService,
+  ],
 })
 export class AuthModule {}

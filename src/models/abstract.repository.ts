@@ -20,7 +20,7 @@ export abstract class AbstractRepository<ay7aga> {
   public update(
     query: FilterQuery<ay7aga>,
     item: any,
-    options: QueryOptions<ay7aga>,
+    options?: QueryOptions<ay7aga>,
   ) {
     return this.nMode.findOneAndUpdate(query, item, options).lean();
   }
